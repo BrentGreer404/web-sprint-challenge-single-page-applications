@@ -3,6 +3,7 @@ import { Route, Link } from "react-router-dom"
 import OrderForm from "./OrderForm";
 import schema from "./formSchema";
 import * as yup from 'yup'
+import axios from "axios";
 
 const initialOrder = {
   name: "",
@@ -20,7 +21,6 @@ const initialFormErrors = {
 const App = () => {
 
   const [formErrors, setFormErrors] = useState(initialFormErrors)
-  const [cart, setCart] = useState([])
   const [order, setOrder] = useState(initialOrder)
 
   const validate = (name, value) => {
@@ -39,10 +39,18 @@ const App = () => {
   }
 
   const onSubmit = () => {
-    const newCart = [...cart]
-    newCart.push(order)
-    console.log("newCart", newCart)
-    setCart(newCart)
+    const newOrder = {
+      name: order.name.trim(),
+      size: order.size.trim(),
+      topping1: order.topping1,
+      topping2: order.topping2,
+      topping3: order.topping3,
+      topping4: order.topping4,
+      special: order.special.trim()
+    }
+    axios.post("https://reqres.in/api/orders", newOrder)
+    .then((res) => console.log(res))
+    .catch((err) => console.log(err))
     setOrder(initialOrder)
   }
 
@@ -55,7 +63,7 @@ const App = () => {
       <h1>Four-Topping Pizza</h1>
       <h2>The pizza place with only four toppings</h2>
       <Link to="/">Home</Link>
-      <Link to="pizza">Pizza?</Link>
+      <Link to="pizza"  id="order-pizza">Pizza?</Link>
       <Route path="/pizza">
         <OrderForm order={order} onChange={onChange} onSubmit={onSubmit} errors={formErrors}/>
       </Route>
