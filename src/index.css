@@ -11,3 +11,36 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#pizza-form {
+  display: flex;
+  width: 30%;
+  flex-direction: column;
+  margin: auto;
+  text-align: center;
+}
+
+#pizza-form button {
+  width: 20%;
+  align-self: center;
+  padding: 5px;
+  margin: auto 5px;
+}
+
+#pizza-form label {
+  padding: 10px;
+}
+
+.toppings {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.toppings label {
+  width: 40%;
+  text-align: right;
+  
+  border: 1px solid black
+}
+
