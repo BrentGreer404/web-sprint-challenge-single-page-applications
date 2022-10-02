@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  text-align: center;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -42,5 +43,12 @@ code {
   text-align: right;
   
   border: 1px solid black
+}
+
+:Link {
+  padding: 5px;
+  margin: auto 5px;
+  text-decoration: none;
+  border: 1px solid black;
 }
 

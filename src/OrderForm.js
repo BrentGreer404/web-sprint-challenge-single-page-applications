@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 
 const OrderForm = (props) => {
 
-  const { order, onChange, onSubmit } = props
+  const { order, onChange, onSubmit, errors } = props
 
   const change = (evt) => {
     const { name, value, type, checked } = evt.target
@@ -17,6 +17,8 @@ const OrderForm = (props) => {
 
   return (
     <div>Order Form
+      
+      <div>{errors.name}</div>
       <form id="pizza-form" onSubmit={submit}>
         <label>Name
           <input 
